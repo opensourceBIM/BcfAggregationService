@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PluginDescriptor>
+	<JavaPlugin>
+		<interfaceClass>org.bimserver.plugins.services.ServicePlugin</interfaceClass>
+		<implementationClass>org.opensourcebim.BcfAggregationService</implementationClass>
+		<name>BCF Aggregation Service</name>
+		<description>BIMbot that aggregates data from different sources and outputs BCF2.0</description>
+	</JavaPlugin>
+</PluginDescriptor>
