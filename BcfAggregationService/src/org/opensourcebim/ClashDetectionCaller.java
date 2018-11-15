@@ -18,7 +18,7 @@ public class ClashDetectionCaller extends BimBotCaller<ArrayNode> {
 		super(baseUrl, token, serviceIdentifier, bimBotsInput);
 	}
 	
-	public ClashDetectionCaller(ObjectNode jsonConfig, BimBotsInput bimBotsInput) throws BimBotCallerException {
+	public ClashDetectionCaller(ObjectNode jsonConfig, BimBotsInput bimBotsInput) throws BimBotCallerException, BimBotConfigurationException {
 		super(jsonConfig, bimBotsInput);
 	}
 	

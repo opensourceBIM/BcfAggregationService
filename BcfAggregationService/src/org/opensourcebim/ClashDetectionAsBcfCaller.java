@@ -16,7 +16,7 @@ public class ClashDetectionAsBcfCaller extends BimBotCaller<BcfFile> {
 		super(baseUrl, token, serviceIdentifier, bimBotsInput);
 	}
 	
-	public ClashDetectionAsBcfCaller(ObjectNode jsonConfig, BimBotsInput bimBotsInput) throws BimBotCallerException {
+	public ClashDetectionAsBcfCaller(ObjectNode jsonConfig, BimBotsInput bimBotsInput) throws BimBotConfigurationException {
 		super(jsonConfig, bimBotsInput);
 	}
 	

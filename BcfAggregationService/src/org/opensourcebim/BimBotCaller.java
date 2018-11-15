@@ -26,16 +26,16 @@ public abstract class BimBotCaller<V> implements Callable<V> {
 		this.bimBotsInput = bimBotsInput;
 	}
 
-	public BimBotCaller(ObjectNode jsonConfig, BimBotsInput bimBotsInput) throws BimBotCallerException {
+	public BimBotCaller(ObjectNode jsonConfig, BimBotsInput bimBotsInput) throws BimBotConfigurationException {
 		this.bimBotsInput = bimBotsInput;
 		if (!jsonConfig.has("baseUrl")) {
-			throw new BimBotCallerException("No \"baseUrl\" in config");
+			throw new BimBotConfigurationException("No \"baseUrl\" in config");
 		}
 		if (!jsonConfig.has("token")) {
-			throw new BimBotCallerException("No \"token\" in config");
+			throw new BimBotConfigurationException("No \"token\" in config");
 		}
 		if (!jsonConfig.has("serviceIdentifier")) {
-			throw new BimBotCallerException("No \"serviceIdentifier\" in config");
+			throw new BimBotConfigurationException("No \"serviceIdentifier\" in config");
 		}
 		this.baseUrl = jsonConfig.get("baseUrl").asText();
 		this.token = jsonConfig.get("token").asText();

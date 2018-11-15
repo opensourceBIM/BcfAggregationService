@@ -19,7 +19,7 @@ public class IfcValidatorCaller extends BimBotCaller<BcfFile> {
 		super(baseUrl, token, serviceIdentifier, bimBotsInput);
 	}
 	
-	public IfcValidatorCaller(ObjectNode settings, BimBotsInput bimBotsInput) throws BimBotCallerException {
+	public IfcValidatorCaller(ObjectNode settings, BimBotsInput bimBotsInput) throws BimBotConfigurationException {
 		super(settings, bimBotsInput);
 	}
 

@@ -81,20 +81,16 @@ public class BcfAggregationService extends BimBotAbstractService {
 			if (projects.size() == 1) {
 				project = projects.get(0);
 			} else {
-				throw new BimBotsException("No, or too many IfcProject entities found");
+				throw new BimBotsException("No, or too many IfcProject entities found", BcfAggregationErrorCodes.NO_OR_TOO_MANY_IFCPROJECTS);
 			}
 			
 			ObjectNode jsonSettings = new ObjectMapper().readValue(pluginConfiguration.getString("settingsJson"), ObjectNode.class);
 			if (!jsonSettings.has("ifcvalidator")) {
-				throw new BimBotsException("No \"ifcvalidator\" in settings");
+				throw new BimBotsException("No \"ifcvalidator\" in settings", BcfAggregationErrorCodes.NO_IFC_VALIDATOR_IN_SETTINGS);
 			}
 			ObjectNode ifcValidatorSettings = (ObjectNode) jsonSettings.get("ifcvalidator");
 			Future<BcfFile> ifcValidationResults;
-			try {
-				ifcValidationResults = threadPoolExecutor.submit(new IfcValidatorCaller(ifcValidatorSettings, input));
-			} catch (BimBotCallerException e) {
-				throw new BimBotsException(e);
-			}
+			ifcValidationResults = threadPoolExecutor.submit(new IfcValidatorCaller(ifcValidatorSettings, input));
 
 			Future<Double> voxelResults = null;
 			if (jsonSettings.has("voxelservice")) {
@@ -104,11 +100,7 @@ public class BcfAggregationService extends BimBotAbstractService {
 			
 			Future<BcfFile> clashDetectionResults = null;
 			if (jsonSettings.has("clashdetection")) {
-				try {
-					clashDetectionResults = threadPoolExecutor.submit(new ClashDetectionAsBcfCaller((ObjectNode) jsonSettings.get("clashdetection"), input));
-				} catch (BimBotCallerException e) {
-					throw new BimBotsException(e);
-				}
+				clashDetectionResults = threadPoolExecutor.submit(new ClashDetectionAsBcfCaller((ObjectNode) jsonSettings.get("clashdetection"), input));
 			}
 
 			threadPoolExecutor.shutdown();
@@ -187,7 +179,6 @@ public class BcfAggregationService extends BimBotAbstractService {
 		} catch (IOException e) {
 			LOGGER.error("", e);
 		}
-		
 		return null;
 	}
 
