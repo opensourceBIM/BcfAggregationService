@@ -32,9 +32,9 @@ public class VoxelServerClient implements AutoCloseable {
 		httpClient = HttpClients.createDefault();
 		
 		RequestConfig.Builder requestConfigBuilder = RequestConfig.copy(RequestConfig.DEFAULT);
-		requestConfig = requestConfigBuilder.setConnectTimeout(2000)
-	        .setSocketTimeout(2000)
-	        .setConnectionRequestTimeout(2000)
+		requestConfig = requestConfigBuilder.setConnectTimeout(4000)
+	        .setSocketTimeout(120000) // 2 minutes
+	        .setConnectionRequestTimeout(4000)
 	        .build();
 	}
 	
