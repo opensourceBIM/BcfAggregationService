@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.opensourcebim</groupId>
 	<artifactId>bcfaggregation</artifactId>
-	<version>0.0.4</version>
+	<version>0.0.5-SNAPSHOT</version>
 	<name>BCF Aggregation Service</name>
 	<description>BCG Aggregation Service</description>
 	<url>https://github.com/opensourceBIM/BcfAggregationService</url>
@@ -154,7 +154,7 @@
 	<scm>
 		<connection>scm:git:https://github.com/opensourceBIM/BcfAggregationService.git</connection>
 		<developerConnection>scm:git:https://github.com/opensourceBIM/BcfAggregationService.git</developerConnection>
-		<tag>bcfaggregation-0.0.4</tag>
+		<tag>ifcanalytics-0.0.01</tag>
 		<url>https://github.com/opensourceBIM/BcfAggregationService.git</url>
 	</scm>
 	<issueManagement>
