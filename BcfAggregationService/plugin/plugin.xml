@@ -4,6 +4,6 @@
 		<interfaceClass>org.bimserver.plugins.services.ServicePlugin</interfaceClass>
 		<implementationClass>org.opensourcebim.BcfAggregationService</implementationClass>
 		<name>BCF Aggregation Service</name>
-		<description>BIMbot that aggregates data from different sources and outputs BCF2.0</description>
+		<description>BIMbot that aggregates data from different sources and outputs BCF2.1</description>
 	</JavaPlugin>
 </PluginDescriptor>

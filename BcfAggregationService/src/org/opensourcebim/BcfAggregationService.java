@@ -84,7 +84,11 @@ public class BcfAggregationService extends BimBotAbstractService {
 				throw new BimBotsException("No, or too many IfcProject entities found", BcfAggregationErrorCodes.NO_OR_TOO_MANY_IFCPROJECTS);
 			}
 			
-			ObjectNode jsonSettings = new ObjectMapper().readValue(pluginConfiguration.getString("settingsJson"), ObjectNode.class);
+			String settingsJson = pluginConfiguration.getString("settingsJson");
+			if (settingsJson == null) {
+				throw new BimBotsException("No settings", BcfAggregationErrorCodes.NO_SETTINGS);
+			}
+			ObjectNode jsonSettings = new ObjectMapper().readValue(settingsJson, ObjectNode.class);
 			if (!jsonSettings.has("ifcvalidator")) {
 				throw new BimBotsException("No \"ifcvalidator\" in settings", BcfAggregationErrorCodes.NO_IFC_VALIDATOR_IN_SETTINGS);
 			}
