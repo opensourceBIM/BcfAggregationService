@@ -4,7 +4,7 @@
 	<artifactId>bcfaggregation</artifactId>
 	<version>0.0.5-SNAPSHOT</version>
 	<name>BCF Aggregation Service</name>
-	<description>BCG Aggregation Service</description>
+	<description>Service that aggregates results from multiple sources into one BCF file</description>
 	<url>https://github.com/opensourceBIM/BcfAggregationService</url>
 	<organization>
 		<name>OpenSource BIM</name>
